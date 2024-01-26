@@ -11,19 +11,20 @@ Make sure you have Python installed on your system. This project uses the tkinte
 1. Clone the repository to your local machine.
 
     ```bash
-    git clone https://github.com/TheUnmeshRaj/bridge-construction-project.git
+    git clone https://github.com/TheUnmeshRaj/civilEL.git
     ```
+
 
 2. Navigate to the project directory.
 
     ```bash
-    cd bridge-construction-project
+    cd civilEL
     ```
 
 3. Run the main script.
 
     ```bash
-    python main.py
+    python Construction.py
     ```
 
 4. The GUI should open, allowing you to perform various calculations related to bridge construction.
