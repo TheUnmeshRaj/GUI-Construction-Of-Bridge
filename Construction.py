@@ -324,6 +324,12 @@ formula_label_shear_reinforcement.pack()
 # Create a new frame for the new tab
 graph_frame = ttk.Frame(notebook)
 
+# Use a ttk style to set the background color
+style = ttk.Style()
+style.configure("Graph.TFrame", background="#E0E0E0")
+
+graph_frame.configure(style="Graph.TFrame")
+
 # Customize the content of the Graph tab
 
 image_path = "247.jpg"
@@ -333,7 +339,7 @@ try:
     image = ImageTk.PhotoImage(image)
 
     image_label = tk.Label(graph_frame, image=image)
-    image_label.pack()
+    image_label.pack(pady=20)
 
 except Exception as e:
     print(f"Error loading the image: {e}")
