@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-# token : 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
+# token : chusmeralora
 # dead
 
 
