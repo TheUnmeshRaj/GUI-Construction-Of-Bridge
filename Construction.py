@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 
 """import numpy as np
 import matplotlib.pyplot as plt
@@ -329,30 +330,20 @@ formula_label_shear_reinforcement.pack()
 graph_frame = ttk.Frame(notebook)
 
 # Customize the content of the Graph tab
+
 image_path = "247.jpg"
-image = tk.PhotoImage(file=image_path)
 
-image_label = tk.Label(graph_frame, image=image)
-image_label.pack()
+try:
+    image = Image.open(image_path)
+    image = ImageTk.PhotoImage(image)
 
-"""
-# Customize the content of the Graph tab
-figure, ax = plt.subplots(figsize=(5, 4), dpi=100)
-strain = np.linspace(0, 0.1, 100)
-stress = 100 * strain  # Example stress-strain relationship
+    image_label = tk.Label(graph_frame, image=image)
+    image_label.pack()
 
-ax.plot(strain, stress, label="Stress vs. Strain")
-ax.set_xlabel("Strain")
-ax.set_ylabel("Stress")
-ax.legend()
+except Exception as e:
+    print(f"Error loading the image: {e}")
 
-# Embed the matplotlib figure in the tkinter window
-canvas = FigureCanvasTkAgg(figure, master=graph_frame)
-canvas.draw()
-canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-"""
-
-graph_label = tk.Label(graph_frame, text="This is a new tab!")
+graph_label = tk.Label(graph_frame, text="This is a Stress vs Strain Graph!")
 graph_label.pack(pady=10)
 
 # Add tabs to the Notebook
