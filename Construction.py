@@ -103,8 +103,10 @@ main_info_label = tk.Label(
 )
 main_info_label.pack()
 
+
 # Create a Notebook (tabs)
 notebook = ttk.Notebook(root, style="Dark.TNotebook")
+
 # Bridge Design Section
 bridge_design_frame = tk.Frame(notebook)
 load_label = tk.Label(bridge_design_frame, text="Load on the Beam (𝑊):")
@@ -318,12 +320,21 @@ calculate_shear_reinforcement_button.pack()
 shear_reinforcement_result_label.pack()
 formula_label_shear_reinforcement.pack()
 
+# Create a new frame for the new tab
+graph_frame = ttk.Frame(notebook)
+
+graph_label = tk.Label(graph_frame, text="This is a new tab!")
+graph_label.pack(pady=10)
+
 # Add tabs to the Notebook
 notebook.add(reinforcement_frame, text="Reinforcement Quantities")
 notebook.add(shear_reinforcement_frame, text="Shear Reinforcement Ratio")
 notebook.add(bridge_design_frame, text="Bridge Design")
 notebook.add(foundation_frame, text="Substructure and Foundation")
 notebook.add(superstructure_frame, text="Superstructure and Deck")
+notebook.add(graph_frame, text="Graph")
+
+notebook.grid_rowconfigure(notebook.index(graph_frame), weight=1)
 
 # Menu Bar
 menu_bar = tk.Menu(root)
