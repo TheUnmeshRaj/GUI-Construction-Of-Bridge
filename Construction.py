@@ -345,4 +345,5 @@ status_bar.pack(side=tk.BOTTOM, fill=tk.X)
 notebook.pack(fill=tk.BOTH, expand=True)
 
 # Run the GUI
-root.mainloop()
+if __name__ == "__main__":
+    root.mainloop()
