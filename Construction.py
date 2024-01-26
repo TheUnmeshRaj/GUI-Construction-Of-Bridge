@@ -348,3 +348,4 @@ notebook.pack(fill=tk.BOTH, expand=True)
 if __name__ == "__main__":
     root.mainloop()
 # i found a chut
+# chut better than lauda
