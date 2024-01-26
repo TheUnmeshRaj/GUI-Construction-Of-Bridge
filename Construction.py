@@ -1,9 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 
-# token : chusmeralora
-# dead
-
 
 def calculate_reinforcement_area():
     try:
@@ -347,5 +344,3 @@ notebook.pack(fill=tk.BOTH, expand=True)
 # Run the GUI
 if __name__ == "__main__":
     root.mainloop()
-# i found a chut
-# chut better than lauda
