@@ -328,31 +328,6 @@ calculate_shear_reinforcement_button.pack()
 shear_reinforcement_result_label.pack()
 formula_label_shear_reinforcement.pack()
 
-# Create a new frame for the new tab
-graph_frame = ttk.Frame(notebook)
-
-# Use a ttk style to set the background color
-style = ttk.Style()
-style.configure("Graph.TFrame", background="#E0E0E0")
-
-graph_frame.configure(style="Graph.TFrame")
-
-# Customize the content of the Graph tab
-
-image_path = "247.jpg"
-
-try:
-    image = Image.open(image_path)
-    image = ImageTk.PhotoImage(image)
-
-    image_label = tk.Label(graph_frame, image=image)
-    image_label.pack(pady=20)
-
-except Exception as e:
-    print(f"Error loading the image: {e}")
-
-graph_label = tk.Label(graph_frame, text="This is a Stress vs Strain Graph!")
-graph_label.pack(pady=10)
 
 # Add tabs to the Notebook
 notebook.add(reinforcement_frame, text="Reinforcement Quantities")
@@ -360,9 +335,6 @@ notebook.add(shear_reinforcement_frame, text="Shear Reinforcement Ratio")
 notebook.add(bridge_design_frame, text="Bridge Design")
 notebook.add(foundation_frame, text="Substructure and Foundation")
 notebook.add(superstructure_frame, text="Superstructure and Deck")
-notebook.add(graph_frame, text="Graph")
-
-notebook.grid_rowconfigure(notebook.index(graph_frame), weight=1)
 
 # Menu Bar
 menu_bar = tk.Menu(root)
