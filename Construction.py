@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk
 
 
 def calculate_reinforcement_area():
@@ -150,33 +149,41 @@ formula_label_max_deflection.pack()
 
 # Superstructure and Deck Section
 superstructure_frame = tk.Frame(notebook)
+
 load_beam_label = tk.Label(superstructure_frame, text="Load on the Beam (𝑊):")
+load_beam_label.grid(row=0, column=0, sticky="w", padx=10, pady=5)
+
 load_beam_entry = tk.Entry(superstructure_frame)
+load_beam_entry.grid(row=0, column=1, sticky="w", padx=10, pady=5)
 
 length_beam_label = tk.Label(superstructure_frame, text="Length of the Beam (𝐿):")
+length_beam_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
+
 length_beam_entry = tk.Entry(superstructure_frame)
+length_beam_entry.grid(row=1, column=1, sticky="w", padx=10, pady=5)
 
 calculate_bending_moment_button = tk.Button(
     superstructure_frame,
     text="Calculate Bending Moment",
     command=calculate_bending_moment,
 )
+calculate_bending_moment_button.grid(
+    row=2, column=0, columnspan=2, sticky="w", padx=10, pady=5
+)
+
 bending_moment_result_label = tk.Label(superstructure_frame, text="Bending Moment: ")
+bending_moment_result_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
 
 formula_label_bending_moment = tk.Label(
     superstructure_frame,
     text="Formula: Bending Moment = (𝑊𝐿^4) / 4",
     relief="solid",
     borderwidth=1,
+    font=("Helvetica", 12),  # Set the font size
 )
-
-load_beam_label.pack()
-load_beam_entry.pack()
-length_beam_label.pack()
-length_beam_entry.pack()
-calculate_bending_moment_button.pack()
-bending_moment_result_label.pack()
-formula_label_bending_moment.pack()
+formula_label_bending_moment.grid(
+    row=6, column=0, columnspan=2, sticky="n", padx=10, pady=(10, 0), ipady=5
+)
 
 # Substructure and Foundation Section
 foundation_frame = tk.Frame(notebook)
