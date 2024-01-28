@@ -106,46 +106,55 @@ main_info_label.pack()
 
 # Create a Notebook (tabs)
 notebook = ttk.Notebook(root, style="Dark.TNotebook")
-
 # Bridge Design Section
 bridge_design_frame = tk.Frame(notebook)
+
 load_label = tk.Label(bridge_design_frame, text="Load on the Beam (𝑊):")
+load_label.grid(row=0, column=0, sticky="w", padx=10, pady=5)
+
 load_entry = tk.Entry(bridge_design_frame)
+load_entry.grid(row=0, column=1, sticky="w", padx=10, pady=5)
 
 length_label = tk.Label(bridge_design_frame, text="Length of the Beam (𝐿):")
+length_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
+
 length_entry = tk.Entry(bridge_design_frame)
+length_entry.grid(row=1, column=1, sticky="w", padx=10, pady=5)
 
 elasticity_label = tk.Label(bridge_design_frame, text="Modulus of Elasticity (𝐸):")
+elasticity_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
+
 elasticity_entry = tk.Entry(bridge_design_frame)
+elasticity_entry.grid(row=2, column=1, sticky="w", padx=10, pady=5)
 
 inertia_label = tk.Label(bridge_design_frame, text="Moment of Inertia (𝐼):")
+inertia_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
+
 inertia_entry = tk.Entry(bridge_design_frame)
+inertia_entry.grid(row=3, column=1, sticky="w", padx=10, pady=5)
 
 calculate_max_deflection_button = tk.Button(
     bridge_design_frame,
     text="Calculate Maximum Deflection",
     command=calculate_max_deflection,
 )
+calculate_max_deflection_button.grid(
+    row=4, column=0, columnspan=2, sticky="w", padx=10, pady=5
+)
+
 max_deflection_result_label = tk.Label(bridge_design_frame, text="Maximum Deflection: ")
+max_deflection_result_label.grid(row=5, column=0, sticky="w", padx=10, pady=5)
 
 formula_label_max_deflection = tk.Label(
     bridge_design_frame,
     text="Formula: Maximum Deflection = (𝑊𝐿^3) / (48𝐸𝐼)",
     relief="solid",
     borderwidth=1,
+    font=("Helvetica", 12),  # Set the font size
 )
-
-load_label.pack()
-load_entry.pack()
-length_label.pack()
-length_entry.pack()
-elasticity_label.pack()
-elasticity_entry.pack()
-inertia_label.pack()
-inertia_entry.pack()
-calculate_max_deflection_button.pack()
-max_deflection_result_label.pack()
-formula_label_max_deflection.pack()
+formula_label_max_deflection.grid(
+    row=6, column=0, columnspan=2, sticky="n", padx=10, pady=(10, 0), ipady=5
+)
 
 # Superstructure and Deck Section
 superstructure_frame = tk.Frame(notebook)
@@ -184,149 +193,180 @@ formula_label_bending_moment = tk.Label(
 formula_label_bending_moment.grid(
     row=6, column=0, columnspan=2, sticky="n", padx=10, pady=(10, 0), ipady=5
 )
-
 # Substructure and Foundation Section
 foundation_frame = tk.Frame(notebook)
+
 pile_base_area_label = tk.Label(foundation_frame, text="Area of Pile Base (𝐴𝑝):")
+pile_base_area_label.grid(row=0, column=0, sticky="w", padx=10, pady=5)
+
 pile_base_area_entry = tk.Entry(foundation_frame)
+pile_base_area_entry.grid(row=0, column=1, sticky="w", padx=10, pady=5)
 
 ultimate_soil_capacity_label = tk.Label(
     foundation_frame, text="Ultimate Soil Capacity (𝑞𝑝):"
 )
+ultimate_soil_capacity_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
+
 ultimate_soil_capacity_entry = tk.Entry(foundation_frame)
+ultimate_soil_capacity_entry.grid(row=1, column=1, sticky="w", padx=10, pady=5)
 
 pile_side_area_label = tk.Label(foundation_frame, text="Area of Pile Side (𝐴𝑠):")
+pile_side_area_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
+
 pile_side_area_entry = tk.Entry(foundation_frame)
+pile_side_area_entry.grid(row=2, column=1, sticky="w", padx=10, pady=5)
 
 ultimate_side_resistance_label = tk.Label(
     foundation_frame, text="Ultimate Side Resistance (𝑓𝑠):"
 )
+ultimate_side_resistance_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
+
 ultimate_side_resistance_entry = tk.Entry(foundation_frame)
+ultimate_side_resistance_entry.grid(row=3, column=1, sticky="w", padx=10, pady=5)
 
 calculate_pile_bearing_capacity_button = tk.Button(
     foundation_frame,
     text="Calculate Pile Bearing Capacity",
     command=calculate_pile_bearing_capacity,
 )
+calculate_pile_bearing_capacity_button.grid(
+    row=4, column=0, columnspan=2, sticky="w", padx=10, pady=5
+)
+
 pile_bearing_capacity_result_label = tk.Label(
     foundation_frame, text="Bearing Capacity of Pile Foundation: "
 )
+pile_bearing_capacity_result_label.grid(row=5, column=0, sticky="w", padx=10, pady=5)
 
 formula_label_pile_bearing_capacity = tk.Label(
     foundation_frame,
     text="Formula: 𝑄𝑝 = 𝐴𝑝*𝑞𝑝 + 𝐴𝑠*𝑓𝑠",
     relief="solid",
     borderwidth=1,
+    font=("Helvetica", 12),
 )
-
-pile_base_area_label.pack()
-pile_base_area_entry.pack()
-ultimate_soil_capacity_label.pack()
-ultimate_soil_capacity_entry.pack()
-pile_side_area_label.pack()
-pile_side_area_entry.pack()
-ultimate_side_resistance_label.pack()
-ultimate_side_resistance_entry.pack()
-calculate_pile_bearing_capacity_button.pack()
-pile_bearing_capacity_result_label.pack()
-formula_label_pile_bearing_capacity.pack()
+formula_label_pile_bearing_capacity.grid(
+    row=6, column=0, columnspan=1, sticky="n", padx=10, pady=(10, 0), ipady=5
+)
 
 # Steel Reinforcement Quantities Section
 reinforcement_frame = tk.Frame(notebook)
+
 deck_width_label = tk.Label(reinforcement_frame, text="Deck Width (mm):")
+deck_width_label.grid(row=0, column=0, sticky="w", padx=10, pady=5)
+
 deck_width_entry = tk.Entry(reinforcement_frame)
+deck_width_entry.grid(row=0, column=1, sticky="w", padx=10, pady=5)
 
 effective_depth_label = tk.Label(reinforcement_frame, text="Effective Deck Depth (mm):")
+effective_depth_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
+
 effective_depth_entry = tk.Entry(reinforcement_frame)
+effective_depth_entry.grid(row=1, column=1, sticky="w", padx=10, pady=5)
 
 fc_label = tk.Label(reinforcement_frame, text="Concrete Compressive Strength (MPa):")
+fc_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
+
 fc_entry = tk.Entry(reinforcement_frame)
+fc_entry.grid(row=2, column=1, sticky="w", padx=10, pady=5)
 
 fy_label = tk.Label(reinforcement_frame, text="Yield Strength of Steel (MPa):")
+fy_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
+
 fy_entry = tk.Entry(reinforcement_frame)
+fy_entry.grid(row=3, column=1, sticky="w", padx=10, pady=5)
 
 calculate_reinforcement_button = tk.Button(
     reinforcement_frame,
     text="Calculate Reinforcement Area",
     command=calculate_reinforcement_area,
 )
+calculate_reinforcement_button.grid(
+    row=4, column=0, columnspan=2, sticky="w", padx=10, pady=5
+)
+
 reinforcement_result_label = tk.Label(
     reinforcement_frame, text="Minimum Area of Reinforcement (As): "
 )
+reinforcement_result_label.grid(row=5, column=0, sticky="w", padx=10, pady=5)
 
 formula_label_reinforcement = tk.Label(
     reinforcement_frame,
     text="Formula: (𝐴𝑠)𝑚𝑖𝑛 = 0.0025 × b × d × (f'c / fy)",
     relief="solid",
     borderwidth=1,
+    font=("Helvetica", 12),
+)
+formula_label_reinforcement.grid(
+    row=6, column=0, columnspan=1, sticky="n", padx=10, pady=(10, 0), ipady=5
 )
 
-deck_width_label.pack()
-deck_width_entry.pack()
-effective_depth_label.pack()
-effective_depth_entry.pack()
-fc_label.pack()
-fc_entry.pack()
-fy_label.pack()
-fy_entry.pack()
-calculate_reinforcement_button.pack()
-reinforcement_result_label.pack()
-formula_label_reinforcement.pack()
 
 # Shear Reinforcement Section
 shear_reinforcement_frame = tk.Frame(notebook)
+
 fc_shear_label = tk.Label(
     shear_reinforcement_frame, text="Concrete Compressive Strength (MPa):"
 )
+fc_shear_label.grid(row=0, column=0, sticky="w", padx=10, pady=5)
+
 fc_shear_entry = tk.Entry(shear_reinforcement_frame)
+fc_shear_entry.grid(row=0, column=1, sticky="w", padx=10, pady=5)
 
 ultimate_shear_force_label = tk.Label(
     shear_reinforcement_frame, text="Design Ultimate Shear Force (kN):"
 )
+ultimate_shear_force_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
+
 ultimate_shear_force_entry = tk.Entry(shear_reinforcement_frame)
+ultimate_shear_force_entry.grid(row=1, column=1, sticky="w", padx=10, pady=5)
 
 deck_width_shear_label = tk.Label(shear_reinforcement_frame, text="Deck Width (mm):")
+deck_width_shear_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
+
 deck_width_shear_entry = tk.Entry(shear_reinforcement_frame)
+deck_width_shear_entry.grid(row=2, column=1, sticky="w", padx=10, pady=5)
 
 effective_depth_shear_label = tk.Label(
     shear_reinforcement_frame, text="Effective Deck Depth (mm):"
 )
+effective_depth_shear_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
+
 effective_depth_shear_entry = tk.Entry(shear_reinforcement_frame)
+effective_depth_shear_entry.grid(row=3, column=1, sticky="w", padx=10, pady=5)
 
 fy_shear_label = tk.Label(
     shear_reinforcement_frame, text="Yield Strength of Steel (MPa):"
 )
+fy_shear_label.grid(row=4, column=0, sticky="w", padx=10, pady=5)
+
 fy_shear_entry = tk.Entry(shear_reinforcement_frame)
+fy_shear_entry.grid(row=4, column=1, sticky="w", padx=10, pady=5)
 
 calculate_shear_reinforcement_button = tk.Button(
     shear_reinforcement_frame,
     text="Calculate Shear Reinforcement Ratio",
     command=calculate_shear_reinforcement_ratio,
 )
+calculate_shear_reinforcement_button.grid(
+    row=5, column=0, columnspan=2, sticky="w", padx=10, pady=5
+)
+
 shear_reinforcement_result_label = tk.Label(
     shear_reinforcement_frame, text="Minimum Shear Reinforcement Ratio (ρv): "
 )
+shear_reinforcement_result_label.grid(row=6, column=0, sticky="w", padx=10, pady=5)
 
 formula_label_shear_reinforcement = tk.Label(
     shear_reinforcement_frame,
     text="Formula: (𝜌𝑣)𝑚𝑖𝑛 = (3 * √f'c * Vu) / (b * d * fy)",
     relief="solid",
     borderwidth=1,
+    font=("Helvetica", 12),
 )
-
-fc_shear_label.pack()
-fc_shear_entry.pack()
-ultimate_shear_force_label.pack()
-ultimate_shear_force_entry.pack()
-deck_width_shear_label.pack()
-deck_width_shear_entry.pack()
-effective_depth_shear_label.pack()
-effective_depth_shear_entry.pack()
-fy_shear_label.pack()
-fy_shear_entry.pack()
-calculate_shear_reinforcement_button.pack()
-shear_reinforcement_result_label.pack()
-formula_label_shear_reinforcement.pack()
+formula_label_shear_reinforcement.grid(
+    row=7, column=0, columnspan=1, sticky="n", padx=10, pady=(10, 0), ipady=5
+)
 
 # Add tabs to the Notebook
 notebook.add(reinforcement_frame, text="Reinforcement Quantities")
