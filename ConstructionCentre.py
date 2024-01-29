@@ -95,12 +95,13 @@ def calculate_shear_reinforcement_ratio():
 # Create the main window
 root = tk.Tk()
 root.title("Bridge Construction Project")
-root.resizable(False, False)  # Set both width and height resizable to False
+root.resizable(True, True)  # Set both width and height resizable to False
 
 # Main Information
 main_info_label = tk.Label(
-    root, text="Welcome to the Bridge Construction Project", font=("Helvetica", 10)
+    root, text="Welcome to the Bridge Construction Project", font=("Helvetica", 16)
 )
+
 main_info_label.pack()
 
 
@@ -108,9 +109,10 @@ main_info_label.pack()
 notebook = ttk.Notebook(root, style="Dark.TNotebook")
 
 # Bridge Design Section
+
 bridge_design_frame = tk.Frame(notebook)
 load_label = tk.Label(bridge_design_frame, text="Load on the Beam (𝑊):")
-load_entry = tk.Entry(bridge_design_frame)
+load_entry = tk.Entry(bridge_design_frame, font=("Helvetica", 12))
 
 length_label = tk.Label(bridge_design_frame, text="Length of the Beam (𝐿):")
 length_entry = tk.Entry(bridge_design_frame)
@@ -125,7 +127,9 @@ calculate_max_deflection_button = tk.Button(
     bridge_design_frame,
     text="Calculate Maximum Deflection",
     command=calculate_max_deflection,
+    font=("Helvetica", 12),
 )
+
 max_deflection_result_label = tk.Label(bridge_design_frame, text="Maximum Deflection: ")
 
 formula_label_max_deflection = tk.Label(
